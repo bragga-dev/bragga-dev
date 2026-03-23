@@ -1,0 +1,96 @@
+{% load static %}
+<!DOCTYPE html>
+<html lang="pt-br">
+
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>{% block title %}BRAGGA DEV{% endblock %}</title>
+
+  <!-- 🔥 Favicons -->
+  <link href="{% static 'assets/img/favicon.png' %}" rel="icon">
+  <link href="{% static 'assets/img/apple-touch-icon.png' %}" rel="apple-touch-icon">
+
+  <!-- ⚡ Preload de fontes (performance) -->
+  <link rel="preload" href="{% static 'fonts/inter/Inter-Regular.woff2' %}" as="font" type="font/woff2" crossorigin>
+  <link rel="preload" href="{% static 'fonts/share-tech-mono/ShareTechMono-Regular.woff2' %}" as="font" type="font/woff2" crossorigin>
+
+  <!-- 🎨 CSS principal -->
+  <link href="{% static 'css/main.css' %}" rel="stylesheet">
+
+  <!-- ⚡ Tailwind (CDN - dev) -->
+  <script src="https://cdn.tailwindcss.com"></script>
+
+  <!-- ⚙️ Tailwind config -->
+  <script>
+    tailwind.config = {
+      theme: {
+        extend: {
+          fontFamily: {
+            sans: ['Space Grotesk', 'sans-serif'],
+
+          }
+        }
+      }
+    }
+  </script>
+
+  <!-- 🎯 Vendor CSS -->
+  <link href="{% static 'assets/vendor/swiper/swiper-bundle.min.css' %}" rel="stylesheet">
+  <link href="{% static 'assets/vendor/aos/aos.css' %}" rel="stylesheet">
+  <link href="{% static 'assets/vendor/glightbox/css/glightbox.min.css' %}" rel="stylesheet">
+  <link href="{% static 'assets/vendor/drift-zoom/drift-basic.css' %}" rel="stylesheet">
+
+  <!-- (Opcional manter CDN externos) -->
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/gh/lipis/flag-icons@7.3.2/css/flag-icons.min.css">
+  <link href="https://cdn.quilljs.com/1.3.6/quill.snow.css" rel="stylesheet">
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/quill-emoji/dist/quill-emoji.css">
+
+  <!-- HTMX -->
+  <script src="https://unpkg.com/htmx.org@1.9.10"></script>
+
+  {% block extra_head %}{% endblock %}
+  
+</head>
+
+<body class="bg-gradient-to-br from-black via-gray-900 to-black text-gray-100 font-sans antialiased">
+
+  {% include "partials/header.html" %}
+
+  <main class="min-h-screen max-w-7xl mx-auto px-4 py-6">
+    {% block content %}{% endblock %}
+  </main>
+
+  {% include "partials/footer.html" %}
+
+  <!-- 🎯 Vendor JS -->
+  <script src="{% static 'assets/vendor/swiper/swiper-bundle.min.js' %}"></script>
+  <script src="{% static 'assets/vendor/aos/aos.js' %}"></script>
+  <script src="{% static 'assets/vendor/imagesloaded/imagesloaded.pkgd.min.js' %}"></script>
+  <script src="{% static 'assets/vendor/isotope-layout/isotope.pkgd.min.js' %}"></script>
+  <script src="{% static 'assets/vendor/glightbox/js/glightbox.min.js' %}"></script>
+  <script src="{% static 'assets/vendor/drift-zoom/Drift.min.js' %}"></script>
+  <script src="{% static 'assets/vendor/purecounter/purecounter_vanilla.js' %}"></script>
+
+  <!-- Editor -->
+  <script src="https://cdn.quilljs.com/1.3.6/quill.js"></script>
+  <script src="https://cdn.jsdelivr.net/npm/quill-emoji/dist/quill-emoji.js"></script>
+
+  <!-- Main JS -->
+  <script src="{% static 'assets/js/main.js' %}"></script>
+
+  {% block extra_js %}{% endblock %}
+  <a href="https://wa.me/+5573981683277?text=Olá,%20tenho%20interesse%20nos%20seus%20serviços"
+   target="_blank"
+   class="fixed bottom-6 right-6 bg-green-500 hover:bg-green-600 text-white p-4 rounded-full shadow-lg z-50 transition transform hover:scale-110 animate-pulse">
+
+  <svg xmlns="http://www.w3.org/2000/svg" 
+       viewBox="0 0 32 32" 
+       fill="currentColor" 
+       class="w-6 h-6">
+    <path d="M16 .396C7.163.396 0 7.56 0 16.396c0 2.893.756 5.607 2.074 7.963L0 32l7.832-2.052a15.922 15.922 0 0 0 8.168 2.264c8.837 0 16-7.164 16-16S24.837.396 16 .396Zm0 29.252c-2.572 0-5.085-.689-7.285-1.992l-.52-.309-4.649 1.218 1.24-4.532-.338-.547a13.29 13.29 0 0 1-2.048-7.09c0-7.36 5.99-13.35 13.35-13.35s13.35 5.99 13.35 13.35-5.99 13.35-13.35 13.35Zm7.285-9.985c-.397-.199-2.348-1.158-2.713-1.291-.364-.133-.63-.199-.896.2-.266.397-1.028 1.291-1.26 1.557-.232.266-.464.299-.861.1-.397-.199-1.676-.618-3.193-1.971-1.18-1.054-1.976-2.355-2.208-2.752-.232-.397-.025-.611.174-.81.179-.178.397-.464.596-.696.199-.232.266-.398.397-.663.133-.266.066-.498-.033-.697-.1-.199-.896-2.16-1.228-2.96-.323-.777-.651-.672-.896-.685l-.763-.013c-.266 0-.697.1-1.062.498-.364.397-1.392 1.36-1.392 3.313 0 1.953 1.425 3.838 1.624 4.104.199.266 2.806 4.285 6.8 6.01.95.41 1.69.655 2.267.838.952.302 1.818.26 2.503.158.763-.114 2.348-.96 2.68-1.887.331-.927.331-1.722.232-1.887-.1-.166-.364-.266-.761-.464Z"/>
+  </svg>
+
+</a>
+</body>
+</html>

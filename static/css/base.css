@@ -1,0 +1,25 @@
+/* Reset básico */
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+/* Corpo padrão */
+body {
+  font-family: 'Inter', sans-serif;
+  background-color: #f9fafb; /* equivalente ao Tailwind gray-50 */
+  color: #111827;
+}
+
+/* Links */
+a {
+  text-decoration: none;
+  color: inherit;
+}
+
+/* Imagens */
+img {
+  max-width: 100%;
+  display: block;
+}

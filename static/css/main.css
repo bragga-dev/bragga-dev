@@ -1,0 +1,54 @@
+/* =========================
+   FONTS - INTER
+========================= */
+@font-face {
+    font-family: 'Inter';
+    src: url('/static/fonts/inter/Inter-Regular.woff2') format('woff2');
+    font-weight: 400;
+    font-style: normal;
+    font-display: swap;
+}
+
+@font-face {
+    font-family: 'Inter';
+    src: url('/static/fonts/inter/Inter-Bold.woff2') format('woff2');
+    font-weight: 700;
+    font-style: normal;
+    font-display: swap;
+}
+
+/* =========================
+   FONTS - SHARE TECH MONO
+========================= */
+@font-face {
+    font-family: 'Share Tech Mono';
+    src: url('/static/fonts/share-tech-mono/ShareTechMono-Regular.woff2') format('woff2');
+    font-weight: 400;
+    font-style: normal;
+    font-display: swap;
+}
+
+/* =========================
+   🔤 FONTS
+========================= */
+@import url("./fonts.css");
+
+/* =========================
+   🎨 BASE (reset + padrão)
+========================= */
+@import url("./base.css");
+
+/* =========================
+   🧱 LAYOUT
+========================= */
+@import url("./layout.css");
+
+/* =========================
+   🧩 COMPONENTES
+========================= */
+@import url("./components.css");
+
+/* =========================
+   ⚡ UTILIDADES
+========================= */
+@import url("./utilities.css");

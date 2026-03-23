@@ -1,0 +1,62 @@
+{% load static %}
+
+<header>
+  <nav class="bg-black border-b border-gray-900">
+    <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+      
+      <div class="flex items-center justify-between h-16">
+
+        <!-- LOGO -->
+        <div class="flex items-center">
+          <a href="#" class="flex items-center space-x-2">
+            <img class="h-12 w-12" src="{% static 'assets/img/bragga-dev-logo.jpg' %}" alt="Logo">
+            <span class="text-purple-600 font-bold text-lg">BRAGGA DEV</span>
+          </a>
+        </div>
+
+        <!-- MENU DESKTOP -->
+        <div class="hidden md:flex space-x-6 items-center">
+          <a href="#home" class="text-white font-semibold hover:text-purple-600 transition">Home</a>
+         <a href="#sobre" class="text-white font-semibold hover:text-purple-600 transition">Sobre</a>
+          <a href="#servicos" class="text-white font-semibold hover:text-purple-600 transition">Serviços</a>
+          <a href="#portfolio" class="text-white font-semibold hover:text-purple-600 transition">Portfólio</a>
+          <a href="#avaliacoes" class="text-white font-semibold hover:text-purple-600 transition">Avaliações</a>
+          <a href="#contato" class="text-white font-semibold hover:text-purple-600 transition">Contato</a>
+
+          <!-- CTA (BOTÃO PRINCIPAL) -->
+            <a href="https://wa.me/+5573981683277?text=Ol%C3%A1,%20tenho%20interesse%20nos%20seus%20servi%C3%A7os" target="_blank"
+            class="ml-4 bg-gradient-to-r from-purple-600 to-purple-800 text-white px-5 py-2 rounded-lg font-semibold shadow-lg hover:scale-105 transition">
+            Solicitar orçamento
+            </a>
+        </div>
+
+        <!-- MOBILE BUTTON -->
+        <div class="md:hidden">
+          <button id="menu-btn" class="text-gray-300 text-2xl">☰</button>
+        </div>
+
+      </div>
+    </div>
+
+    <!-- MOBILE MENU -->
+    <div id="mobile-menu" class="hidden md:hidden px-4 pb-4 bg-gray-900">
+      
+      <a href="#home" class="block text-white font-semibold py-2">Home</a>
+      <a href="#sobre" class="block text-white font-semibold py-2">Sobre</a>
+      <a href="#servicos" class="block text-white font-semibold py-2">Serviços</a>
+      <a href="#portfolio" class="block text-white font-semibold py-2">Portfólio</a>
+      <a href="#avaliacoes" class="block text-white font-semibold py-2">Avaliações</a>
+      <a href="#contato" class="block text-white font-semibold py-2">Contato</a>
+
+      <!-- CTA MOBILE -->
+      <a href="https://wa.me/+5573981683277" target="_blank"
+        class="block mt-4 bg-purple-600 text-white text-center px-4 py-2 rounded-lg font-semibold hover:bg-purple-700 transition">
+         Solicitar orçamento
+      </a>
+
+    </div>
+
+  </nav>
+</header>
+
+<script src="{% static 'js/navbar.js' %}"></script>
