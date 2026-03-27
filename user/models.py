@@ -318,5 +318,32 @@ class Portifolio(models.Model):
     id = models.UUIDField(primary_key=True, default=uuid.uuid4, editable=False)
     title = models.CharField(max_length=100)
     description = models.TextField()
-    image = models.ImageField(upload_to="portfolios/", default="default/user_img.jpg", blank=True, null=True, validators=[validate_image_file], help_text=_('Formato de arquivo: jpg, jpeg ou png.'))
+    image = models.ImageField(upload_to="portfolios/", default="default/project_img.jpg", blank=True, null=True, validators=[validate_image_file], help_text=_('Formato de arquivo: jpg, jpeg ou png.'))
     created_at = models.DateTimeField(auto_now_add=True)
+    slug = models.SlugField(max_length=255, unique=True, editable=False)
+
+    class Meta:
+        ordering = ['-created_at']
+        verbose_name = "Portifólio"
+        verbose_name_plural = "Portifólios"
+
+    def get_absolute_url(self):
+        return reverse('portifolio_detail', args=[str(self.id), self.slug])
+
+    def __str__(self):
+        return self.title
+    
+
+    def save(self, *args, **kwargs):
+        if not self.slug:
+            base_slug = slugify(self.title)
+            slug = base_slug
+            counter = 1
+
+            while Portifolio.objects.filter(slug=slug).exists():
+                slug = f"{base_slug}-{counter}"
+                counter += 1
+
+            self.slug = slug
+
+        super().save(*args, **kwargs)

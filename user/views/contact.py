@@ -79,7 +79,7 @@ def process_contact(form, request):
         <div style="max-width: 600px; margin: auto; background: #020617; border-radius: 12px; padding: 30px; border: 1px solid #1e293b;">
             
             <h1 style="color: #a855f7; text-align: center; margin-bottom: 20px;">
-                BRAGGA DEV 🚀
+                BRAGGA DEV 
             </h1>
 
             <h2 style="color: #ffffff;">Recebemos seu contato!</h2>

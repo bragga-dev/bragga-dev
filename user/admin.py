@@ -6,7 +6,7 @@ from django.utils import timezone
 from django.db.models import Count, Q
 from django.contrib.admin import SimpleListFilter
 from .models import (
-    User, Service, Rating, BannerGroup, BannerImage, Contact
+    User, Service, Rating, BannerGroup, BannerImage, Contact, Portifolio
 )
 
 
@@ -516,6 +516,30 @@ class ContactAdmin(admin.ModelAdmin):
         return super().get_queryset(request).select_related()
 
 
+@admin.register(Portifolio)
+class PortifolioAdmin(admin.ModelAdmin):
+    list_display = ('title', 'created_at', 'photo_preview')
+    list_filter = ('created_at',)
+    search_fields = ('title', 'description')
+    readonly_fields = ('id', 'created_at')
+    fieldsets = (
+        ('Informações Básicas', {
+            'fields': ('title', 'description', 'image')
+        }),
+        ('Informações do Sistema', {
+            'fields': ('id',  'created_at'),
+            'classes': ('collapse',)
+        }),
+    )
+
+    def photo_preview(self, obj):
+        if obj.image:
+            return format_html(
+                '<img src="{}" width="40" height="40" style="border-radius: 50%; object-fit: cover;" />',
+                obj.image.url
+            )
+        return _('Sem foto')
+    photo_preview.short_description = _('Foto')
 # ==================== PERSONALIZAÇÃO DO ADMIN SITE ====================
 
 admin.site.site_header = _('Bragga Dev - Administração')
